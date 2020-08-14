@@ -1,8 +1,14 @@
 Api Rest: 
 - Spring boot
-- Capa de seguridad con Spring Security y JWT con auth basic
+- Api Rest filtrada con Jwt
+- Capa de seguridad con Spring Security
 - Control exception Api
 - Test
+
+Cuenta con módulo: 
+
+-Cliente 
+-Producto
 
 Información construcción Seguridad
 
