@@ -1,6 +1,7 @@
-package com.pasteleria;
+package com.gestion.gestion_finance.login;
 
-import com.pasteleria.restController.JwtResource;
+import com.dulcepan.api.JwtApi;
+import com.gestion.gestion_finance.ApiTestConfig;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,15 +14,15 @@ import static org.springframework.web.reactive.function.client.ExchangeFilterFun
 public class JwtResourceTest {
 
     @Autowired
-    private WebTestClient webTestClient;
+    private WebTestClient testClient;
 
     private String jwt;
 
     @BeforeEach
     void login() {
-        this.jwt = webTestClient
+        this.jwt = testClient
                 .mutate().filter(basicAuthentication("gsolis", "12345")).build()
-                .post().uri(JwtResource.JWTS + JwtResource.TOKEN)
+                .post().uri(JwtApi.JWT + JwtApi.TOKEN)
                 .exchange()
                 .expectStatus().isOk()
                 .expectBody(String.class)
@@ -30,13 +31,14 @@ public class JwtResourceTest {
 
     @Test
     void test_get_token_not_null() {
+        System.out.println(this.jwt);
         assertNotNull(this.jwt);
     }
 
     @Test
     void test_get_token_not_auth_basic() {
-        webTestClient
-                .post().uri(JwtResource.JWTS + JwtResource.TOKEN)
+        testClient
+                .post().uri(JwtApi.JWT + JwtApi.TOKEN)
                 .exchange()
                 .expectStatus().isUnauthorized();
     }
@@ -44,11 +46,10 @@ public class JwtResourceTest {
 
     @Test
     void test_verify_token_ok() {
-        webTestClient
-                .get().uri(JwtResource.JWTS)
+        testClient
+                .get().uri(JwtApi.JWT)
                 .header("Authorization", "Bearer " + this.jwt)
                 .exchange()
                 .expectStatus().isOk();
     }
-
 }

@@ -1,5 +1,6 @@
 package com.dulcepan.api.data;
 
+import com.dulcepan.api.swagger.ClientApiSwagger;
 import com.dulcepan.dto.ClientDto;
 import com.dulcepan.entity.Client;
 import com.dulcepan.service.ClientService;

@@ -1,4 +1,4 @@
-package com.gestion.gestion_finance;
+package com.gestion.gestion_finance.client;
 
 import com.dulcepan.Application;
 import com.dulcepan.entity.Client;
@@ -23,11 +23,12 @@ class ClientTest {
 	void createClient() {
 
 		Client clientToInsert = Client.builder().nameClient("Gonzalo")
-				.address("Dirección")
+				.address("Direccsión")
 				.commune("Comuna")
 				.nameMarket("Nombre Market")
 				.phone("+56944674728")
 				.rut("17852509-3")
+
 				.build();
 		Client client =clientService.createClient(clientToInsert);
 
