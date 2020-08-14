@@ -13,7 +13,7 @@ import javax.persistence.*;
 @ToString
 @Entity
 @Table(name = "type_product")
-public class TypeProduct extends AbstractEntity<Integer> {
+public class TypeProduct  {
 
     private Integer typeProductId;
     private String descriptionTypeProduct;
@@ -30,9 +30,5 @@ public class TypeProduct extends AbstractEntity<Integer> {
         return descriptionTypeProduct;
     }
 
-    @Transient
-    @Override
-    public Integer getEntityId() {
-        return getTypeProductId();
-    }
+
 }

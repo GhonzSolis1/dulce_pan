@@ -1,5 +1,6 @@
 package com.dulcepan.service.impl.manager;
 
+import com.dulcepan.dto.ProductDto;
 import com.dulcepan.entity.*;
 import com.dulcepan.service.manager.ManagementProductService;
 import com.dulcepan.service.ProductService;
@@ -29,9 +30,9 @@ public class ManagementProductServiceImpl implements ManagementProductService {
 
     @Transactional
     @Override
-    public Product createProductWithRecipeInitial(Product product) {
-        Product  productCreated= productService.createProduct(product);
-       Recipe recipe = recipeService.createRecipe(recipe(productCreated));
+    public ProductDto createProductWithRecipeInitial(Product product) {
+        ProductDto productCreated= productService.createProduct(product);
+       Recipe recipe = recipeService.createRecipe(recipe(Product.builder().productId(productCreated.getProductId()).build()));
         recipeStatusService.createRecipeStatus(RecipeStatus(recipe));
 
         return productCreated;

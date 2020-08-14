@@ -1,8 +1,9 @@
 package com.dulcepan.service.manager;
 
+import com.dulcepan.dto.ProductDto;
 import com.dulcepan.entity.Product;
 
 public interface ManagementProductService {
 
-    Product createProductWithRecipeInitial(Product product);
+    ProductDto createProductWithRecipeInitial(Product product);
 }

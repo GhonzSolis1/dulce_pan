@@ -1,5 +1,6 @@
 package com.dulcepan.service;
 
+import com.dulcepan.dto.ProductDto;
 import com.dulcepan.entity.Client;
 import com.dulcepan.entity.Product;
 import com.dulcepan.entity.TypeProduct;
@@ -9,16 +10,18 @@ import java.util.List;
 public interface ProductService {
 
 
-    Product createProduct(Product product);
+    ProductDto createProduct(Product product);
 
-    List<Product> findAllProduct();
+    ProductDto findByProductId(Integer productId);
 
-    Product updateProduct(Product product);
+    List<ProductDto> findAllProduct();
 
-    List<Product> findByDescriptionProductContaining(String description);
+    ProductDto updateProduct(Product product);
 
-    List<Product> findByNameProductContaining(String nameProduct);
+    List<ProductDto> findByDescriptionProductContaining(String description);
 
-    List<Product> findByTypeProduct(TypeProduct typeProduct);
+    List<ProductDto> findByNameProductContaining(String nameProduct);
+
+    List<ProductDto> findByTypeProduct(TypeProduct typeProduct);
 
 }

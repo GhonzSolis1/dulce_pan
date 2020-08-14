@@ -1,9 +1,11 @@
 package com.dulcepan.service.impl;
 
+import com.dulcepan.dto.ProductDto;
 import com.dulcepan.entity.Product;
 import com.dulcepan.entity.TypeProduct;
 import com.dulcepan.dao.ProductDao;
 import com.dulcepan.service.ProductService;
+import com.dulcepan.util.ObjectMapperUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,34 +28,39 @@ public class ProductServiceImpl implements ProductService {
 
     @Transactional
     @Override
-    public Product createProduct(Product product) {
-        return productDao.saveAndFlush(product);
+    public ProductDto createProduct(Product product) {
+        return ObjectMapperUtils.map(productDao.saveAndFlush(product),ProductDto.class);
+    }
+
+    @Override
+    public ProductDto findByProductId(Integer productId) {
+        return productDao.findByProductId(productId);
     }
 
     @Transactional
     @Override
-    public List<Product> findAllProduct() {
-        return productDao.findAll();
+    public List<ProductDto> findAllProduct() {
+        return  ObjectMapperUtils.mapAll(productDao.findAll(),ProductDto.class);
     }
 
     @Override
     @Transactional
-    public Product updateProduct(Product product) {
-        return productDao.saveAndFlush(product);
+    public ProductDto updateProduct(Product product) {
+        return ObjectMapperUtils.map(productDao.saveAndFlush(product),ProductDto.class);
     }
 
     @Override
-    public List<Product> findByDescriptionProductContaining(String description) {
+    public List<ProductDto> findByDescriptionProductContaining(String description) {
         return productDao.findByDescriptionProductContaining(description);
     }
 
     @Override
-    public List<Product> findByNameProductContaining(String nameProduct) {
+    public List<ProductDto> findByNameProductContaining(String nameProduct) {
         return productDao.findByNameProductContaining(nameProduct);
     }
 
     @Override
-    public List<Product> findByTypeProduct(TypeProduct typeProduct) {
+    public List<ProductDto> findByTypeProduct(TypeProduct typeProduct) {
         return productDao.findByTypeProduct(typeProduct);
     }
 }
