@@ -9,6 +9,7 @@ Cuenta con módulo:
 
 -Cliente 
 -Producto
+-Tipo Producto
 
 Información construcción Seguridad
 
