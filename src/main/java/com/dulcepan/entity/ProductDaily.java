@@ -1,6 +1,5 @@
 package com.dulcepan.entity;
 
-import com.dulcepan.entity.base.AbstractEntity;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
@@ -14,7 +13,7 @@ import java.util.Date;
 @Builder
 @Entity
 @Table(name = "product_daily")
-public class ProductDaily extends AbstractEntity<Integer> {
+public class ProductDaily  {
 
 
     private Integer productDailyId;
@@ -52,9 +51,4 @@ public class ProductDaily extends AbstractEntity<Integer> {
         return stockDailyHis;
     }
 
-    @Transient
-    @Override
-    public Integer getEntityId() {
-        return getProductDailyId();
-    }
 }

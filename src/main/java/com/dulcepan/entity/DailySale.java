@@ -1,19 +1,18 @@
 package com.dulcepan.entity;
 
-import com.dulcepan.entity.base.AbstractEntity;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
 import javax.persistence.*;
 
 @Builder
-@Setter
+@Data
 @AllArgsConstructor
 @ToString
 @NoArgsConstructor
 @Entity
 @Table(name = "daily_sale")
-public class DailySale  extends AbstractEntity<Integer> {
+public class DailySale{
 
     private Integer dailySaleId;
     private ProductDaily productDaily;
@@ -67,9 +66,4 @@ public class DailySale  extends AbstractEntity<Integer> {
         return stock;
     }
 
-    @Transient
-    @Override
-    public Integer getEntityId() {
-        return getDailySaleId();
-    }
 }

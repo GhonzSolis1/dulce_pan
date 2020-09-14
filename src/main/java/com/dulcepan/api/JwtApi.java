@@ -32,6 +32,7 @@ public class JwtApi {
 
         List<String> roleList = activeUser.getAuthorities().stream().map
                 (GrantedAuthority::getAuthority).collect(Collectors.toList());
+        System.out.println(roleList);
          return jwt.createToken(activeUser.getUsername(), roleList);
     }
 

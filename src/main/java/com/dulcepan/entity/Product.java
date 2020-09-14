@@ -1,13 +1,9 @@
 package com.dulcepan.entity;
 
-import com.dulcepan.entity.base.AbstractEntity;
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
-import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -16,7 +12,7 @@ import java.util.List;
 @Builder
 @Entity
 @Table(name = "product")
-public class Product extends AbstractEntity<Integer> {
+public class Product {
 
     private Integer productId;
     private String nameProduct;
@@ -64,11 +60,6 @@ public class Product extends AbstractEntity<Integer> {
         return recipes;
     }*/
 
-    @Transient
-    @Override
-    public Integer getEntityId() {
-        return getProductId();
-    }
 
 }
 

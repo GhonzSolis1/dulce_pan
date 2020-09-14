@@ -1,7 +1,6 @@
 package com.dulcepan.entity;
 
 
-import com.dulcepan.entity.base.AbstractEntity;
 import lombok.*;
 
 import javax.persistence.*;

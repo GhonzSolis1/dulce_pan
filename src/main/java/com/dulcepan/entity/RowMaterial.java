@@ -1,9 +1,7 @@
 package com.dulcepan.entity;
 
-import com.dulcepan.entity.base.AbstractEntity;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
-
 import javax.persistence.*;
 
 
@@ -14,7 +12,7 @@ import javax.persistence.*;
 @ToString
 @Entity
 @Table(name = "raw_material")
-public class RowMaterial extends AbstractEntity<Integer> {
+public class RowMaterial{
 
     public static final int UNDEFINED = 0;
     private Integer rowMaterialId;
@@ -52,9 +50,4 @@ public class RowMaterial extends AbstractEntity<Integer> {
         return measure;
     }
 
-    @Transient
-    @Override
-    public Integer getEntityId() {
-        return getRowMaterialId();
-    }
 }

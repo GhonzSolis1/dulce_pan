@@ -1,6 +1,5 @@
 package com.dulcepan.entity;
 
-import com.dulcepan.entity.base.AbstractEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
@@ -14,7 +13,7 @@ import javax.persistence.*;
 @Builder
 @Entity
 @Table(name = "document_status")
-public class DocumentStatus extends AbstractEntity<Integer> {
+public class DocumentStatus {
 
     public static final Integer CREATED = 1;
     public static final Integer DEBT= 3;
@@ -35,9 +34,4 @@ public class DocumentStatus extends AbstractEntity<Integer> {
         return description;
     }
 
-    @Transient
-    @Override
-    public Integer getEntityId() {
-        return getDocumentStatusId();
-    }
 }

@@ -2,19 +2,13 @@ package com.dulcepan.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.Transient;
-
-import com.dulcepan.entity.base.AbstractEntity;
 import lombok.*;
 
 @Entity
 @Table(name = "client")
-@Setter
-@Getter
+@Data
 @Builder
 @ToString
 @AllArgsConstructor

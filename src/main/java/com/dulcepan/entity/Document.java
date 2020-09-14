@@ -1,6 +1,4 @@
 package com.dulcepan.entity;
-
-import com.dulcepan.entity.base.AbstractEntity;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
@@ -14,7 +12,7 @@ import java.util.Date;
 @Builder
 @Entity
 @Table(name = "document")
-public class Document extends AbstractEntity<Integer> {
+public class Document  {
 
     private Integer documentId;
     private DocumentStatus statusDocument;
@@ -54,9 +52,4 @@ public class Document extends AbstractEntity<Integer> {
         return totalPayment;
     }
 
-    @Transient
-    @Override
-    public Integer getEntityId() {
-        return getDocumentId();
-    }
 }

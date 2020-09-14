@@ -36,7 +36,7 @@ public class ClientApi implements ClientApiSwagger {
         return new ResponseEntity<>(clientDataApi.findByRut(rut),HttpStatus.ACCEPTED);
     }
     @PreAuthorize("hasRole('USER')")
-    @GetMapping("/name/{name}")
+         @GetMapping("/name/{name}")
     public ResponseEntity<Object> findByName(@PathVariable("name") String name){
         return new ResponseEntity<>(clientDataApi.findByNameClientContaining(name), HttpStatus.ACCEPTED);
     }

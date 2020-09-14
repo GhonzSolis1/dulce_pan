@@ -1,7 +1,5 @@
 package com.dulcepan.entity;
 
-
-import com.dulcepan.entity.base.AbstractEntity;
 import lombok.*;
 
 import javax.persistence.*;
@@ -13,7 +11,7 @@ import javax.persistence.*;
 @ToString
 @Entity
 @Table(name = "measure")
-public class Measure extends AbstractEntity<Integer> {
+public class Measure{
     public static final int UNDEFINED = 3;
     private Integer measureId;
     private String description;
@@ -30,9 +28,4 @@ public class Measure extends AbstractEntity<Integer> {
         return description;
     }
 
-    @Transient
-    @Override
-    public Integer getEntityId() {
-        return getMeasureId();
-    }
 }

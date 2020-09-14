@@ -1,7 +1,5 @@
 package com.dulcepan.entity;
 
-
-import com.dulcepan.entity.base.AbstractEntity;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
@@ -14,7 +12,7 @@ import javax.persistence.*;
 @ToString
 @Entity
 @Table(name = "recipe_status")
-public class RecipeStatus extends AbstractEntity<Integer> {
+public class RecipeStatus {
 
     private Integer recipeStatusId;
     private String description;
@@ -40,9 +38,4 @@ public class RecipeStatus extends AbstractEntity<Integer> {
         return recipe;
     }
 
-    @Transient
-    @Override
-    public Integer getEntityId() {
-        return getRecipeStatusId();
-    }
 }
